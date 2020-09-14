@@ -1,0 +1,8 @@
+// jsc example base
+{
+    BaseValue :
+    {
+        name: "BaseValue",
+        level: 10
+    }
+}

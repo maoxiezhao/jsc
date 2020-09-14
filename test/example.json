@@ -1,0 +1,28 @@
+{
+    "key": "Hello World!!",
+    "AAA": {
+        "name": "TestAAA",
+        "time": 12,
+        "vaisible": false
+    },
+    "BBB": {
+        "age": 13,
+        "time": 22,
+        "children": [
+            "Good!",
+            1,
+            2,
+            3
+        ],
+        "count": 10,
+        "name": "TestAAA",
+        "vaisible": false
+    },
+    "BaseValue": {
+        "name": "BaseValue",
+        "level": 10
+    },
+    "CCC": {
+        "name": "Windows_CCC"
+    }
+}

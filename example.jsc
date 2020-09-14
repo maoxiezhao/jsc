@@ -1,0 +1,45 @@
+// jsc example
+// jsc based on json
+import "example_base.jsc"
+{
+    // jsc support comments
+    // this is comment
+    /* this is comment */
+
+    "key" : 'Hello World!!',
+
+    // jsc support object inherit
+    AAA : 
+    {
+        name : "TestAAA",
+        time : 12,
+        vaisible: false,
+    },
+
+    // jsc support decalre vars
+    jcs_def :
+    {
+        "total_count" : 10,
+    },
+
+    BBB(AAA) : 
+    {
+        age: 13,
+        time : 22,
+        children : ["Good!", 1,2,3],
+
+        // jsc support variable
+        count: "${total_count}",
+    },
+
+    // jsc support platform key
+    CCC<Windows> :
+    {
+        name : "Windows_CCC"
+    },
+
+    CCC<Linux> :
+    {
+        name : "Linux_CCC"
+    }
+}
