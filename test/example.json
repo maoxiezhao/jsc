@@ -18,6 +18,16 @@
         "name": "TestAAA",
         "vaisible": false
     },
+    "FFFF": [
+        [
+            "DDD",
+            "FFF"
+        ],
+        [
+            "DDD",
+            "FFF"
+        ]
+    ],
     "BaseValue": {
         "name": "BaseValue",
         "level": 10

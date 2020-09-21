@@ -41,5 +41,10 @@ import "example_base.jsc"
     CCC<Linux> :
     {
         name : "Linux_CCC"
-    }
+    },
+
+    FFFF : [
+        ["DDD", "FFF"],
+        ["DDD", "FFF"],
+    ],
 }

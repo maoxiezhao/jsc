@@ -138,14 +138,14 @@ def quoted_array(array_string):
             item_end = get_closed_brackets_end_pos("{", "}", array_string, pos)
             if item_end == -1:
                 break
-            ret += quoted_object(array_string[pos:item_end])
+            ret += quoted_object(array_string[pos+1:item_end-1])
 
         elif item_type == "array":
             # []中可能存在",", 重新定位item_end
             item_end = get_closed_brackets_end_pos("[", "]", array_string, pos)
             if item_end == -1:
                 break
-            ret += quoted_array(array_string[pos:item_end])
+            ret += quoted_array(array_string[pos+1:item_end-1])
         elif item[0] == "\"":
             # 字符串中可能有",", 重新定位item_end
             item_end = get_closed_brackets_end_pos("\"", "\"", array_string, pos)
@@ -378,7 +378,7 @@ def process_platform_keys_recursive(jsn, platform_name):
         if bp != -1 and ep != -1:
             key_platform = key[bp + 1:ep]
             real_key = key[:bp]
-            print(key_platform, real_key)
+
             if key_platform == platform_name:
                 platform_dict[real_key] = value
             to_removed_keys.append(key)
