@@ -570,7 +570,7 @@ def PrintHelp():
     print("-o   : ouput directory")
     print("-i   : import directory")
 
-def parse_jsc(jsc, import_dir):
+def parse_jsc(jsc, import_dir=None):
     # get imports
     jsc, imports = jsc_get_imports(jsc, import_dir)
 
