@@ -570,7 +570,7 @@ def PrintHelp():
     print("-o   : ouput directory")
     print("-i   : import directory")
 
-def parse_jsc(jsc, import_dir=None):
+def parse_jsc(jsc, import_dir=None, parse_var=True):
     # get imports
     jsc, imports = jsc_get_imports(jsc, import_dir)
 
@@ -579,6 +579,7 @@ def parse_jsc(jsc, import_dir=None):
     
     # 根据处理后的jsc buffer读取json
     try:
+        print(jsc)
         jsn = json.loads(jsc)
     except:
         traceback.print_exc()
@@ -586,7 +587,7 @@ def parse_jsc(jsc, import_dir=None):
 
     # 加载import项
     for import_file in imports:
-        import_jsn = load_jsc(import_file, import_dir)
+        import_jsn = load_jsc(import_file, import_dir, False)
         if import_jsn:
             process_inherit(jsn, import_jsn) 
 
@@ -597,17 +598,18 @@ def parse_jsc(jsc, import_dir=None):
     process_inherit_recursive(jsn, jsn)
 
     # 处理variables
-    process_variables_recursive(jsn, dict())
-
+    if parse_var:
+        process_variables_recursive(jsn, dict())
+    
     return jsn
 
-def load_jsc(file_name, import_dir=None):
+def load_jsc(file_name, import_dir=None, parse_var=True):
     if not file_name:
         return
     jsc = open(file_name).read()
     if not jsc:
         return
-    return parse_jsc(jsc, import_dir)
+    return parse_jsc(jsc, import_dir, parse_var)
 
 def parse_args():
     args_info = ArgsInfo()
@@ -634,7 +636,7 @@ def parse_args():
 def generate(args_info, input_file_name, output_file_name):
     print("start to generate:", input_file_name, output_file_name)
     out_file = open(output_file_name, "w+")
-    json_obj = load_jsc(input_file_name, args_info.import_dir)
+    json_obj = load_jsc(input_file_name, args_info.import_dir, True)
     if json_obj:
         out_file.write(json.dumps(json_obj, indent=4))
     out_file.close()
