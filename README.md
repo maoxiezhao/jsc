@@ -5,7 +5,7 @@ Feature:
 * Support inheritance
 * Support variables
   
-Example:
+Example:  
 I used jsc to create a cfg for vulkan-test
 ```
 import "../tools/cjing_build/config_base.jsc"
