@@ -7,7 +7,7 @@ Feature:
   
 Example:
 I used jsc to create a cfg for vulkan-test
-```json
+```
 import "../tools/cjing_build/config_base.jsc"
 {
     jcs_def :
